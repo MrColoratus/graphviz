@@ -69,7 +69,7 @@ export class PieChartComponent implements OnInit {
     // set the color scale
     let color = d3.scaleOrdinal()
         .domain(data)
-        .range(d3.schemeSet2);
+        .range(['orange', 'red']);
 
     let pie = d3.pie()
         .value(function(d) {return d.value; })
