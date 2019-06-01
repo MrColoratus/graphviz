@@ -39,9 +39,7 @@ export class InspectorComponent implements OnInit {
     {id: 'income', name: 'Income', threshold: 55}
   ];
 
-  constructor(private dataService : DataService) {
-    console.log('This:', this);
-  }
+  constructor(private dataService : DataService) {}
 
   ngOnInit() {
 
@@ -55,7 +53,6 @@ export class InspectorComponent implements OnInit {
         .entries(data);
   
       this.currentData = dataByYear[3].value;
-      console.log('Current Data:', this.currentData);
   
       this.target1 = this.currentData[0];
       this.target2 = this.currentData[1];
@@ -66,10 +63,6 @@ export class InspectorComponent implements OnInit {
         areas.push(element.area);
       });
       this.areas = areas;
-
-      let areaIndex = 1;
-  
-      console.log(this.currentData);
 
       this.setupVisuals();
       this.updateGraph();

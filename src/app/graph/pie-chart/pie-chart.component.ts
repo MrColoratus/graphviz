@@ -56,8 +56,6 @@ export class PieChartComponent implements OnInit {
           throw new Error("Invalid year: " + year);
       }
 
-      console.log("Ghettoes by year:", this.ghettoesByYear);
-
       return {
           notGhetto: this.ghettoesByYear[index].values[0].value,
           ghetto: this.ghettoesByYear[index].values[1].value
@@ -75,16 +73,11 @@ export class PieChartComponent implements OnInit {
 
     let pie = d3.pie()
         .value(function(d) {return d.value; })
-        .sort(function(a, b) { console.log(a) ; return d3.ascending(a.key, b.key);} ) // This make sure that group order remains the same in the pie chart
+        .sort(function(a, b) { return d3.ascending(a.key, b.key);} ) // This make sure that group order remains the same in the pie chart
     let data_ready = pie(d3.entries(data))
-    console.log("Data ready:", data_ready);
-    // map to data
-    console.log("Select all null:" + this.svg.selectAll(null));
-    console.log("Select all path:" + this.svg.selectAll("path"));
+
     var u = this.svg.selectAll("path")
         .data(data_ready);
-
-    console.log("u: " + u);
 
     let arcGenerator = d3.arc()
         .innerRadius(0)
@@ -103,21 +96,24 @@ export class PieChartComponent implements OnInit {
         .style("stroke-width", "2px")
         .style("opacity", 1)
 
-    u
-        .selectAll('path')
-        .data(data_ready)
-        .enter()
-        .append('text')
-        .text(function(d){ return "grp " + d.data.key})
-        .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
-        .style("text-anchor", "middle")
-        .style("font-size", 17)
-
     // remove the group that is not present anymore
     u
         .exit()
-        .remove()
+        .remove();
 
+    u = this.svg.selectAll('text').data([]).exit().remove();
+
+    this.svg.selectAll('text')
+        .data(data_ready)
+        .enter()
+        .append('text')
+        .text(function(d){ 
+            let isGhetto = d.data.key === 'ghetto';
+            return (isGhetto ? 'Ghettos: ' : 'Non-ghettos: ') + d.data.value;
+        })
+        .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
+        .style("text-anchor", "middle")
+        .style("font-size", 13)
   }
 
 }
