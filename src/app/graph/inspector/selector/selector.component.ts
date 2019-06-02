@@ -14,6 +14,7 @@ export class SelectorComponent implements OnInit {
 
   private selectingArea: boolean = false;
   private currentSelector: string = 'Area';
+  private currentDropdown: string = '';
 
   constructor() { }
 
@@ -24,6 +25,8 @@ export class SelectorComponent implements OnInit {
       else if(a.area > b.area) return 1;
       else return 0;
     });
+
+    this.currentDropdown = this.data[this.startingArea].area;
 
     this.beginSelectingArea();
   }
@@ -58,6 +61,7 @@ export class SelectorComponent implements OnInit {
         result[c] = result[c] / totalPositive
       });
 
+      result.ghetto = -1;
       return result;
     }
 
@@ -93,6 +97,7 @@ export class SelectorComponent implements OnInit {
   changeArea(area) {
     area.name = area.area;
     this.targetChange.emit(area);
+    this.currentDropdown = area.name;
   }
 
 }

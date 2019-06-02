@@ -6,5 +6,6 @@ export class InspectorTarget {
     public education;
     public income;
     public name;
+    public ghetto;
 
 }

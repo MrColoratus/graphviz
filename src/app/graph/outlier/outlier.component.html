@@ -1,5 +1,24 @@
 <h1>Outlier detection</h1>
 
+<p>
+    This visualization is designed to help identify statistical outliers.
+    A visualization for each of the 5 criteria has been created. Each line represents an area, and the x-axis describes the area's value for a given criteria.
+    The black line indicates the threshold for a given criteria. Note that for the first 4 criteria the value must be <i>above</i> the line, in order for the criteria to be fulfilled, and for the 5'th criterion (income) the value must be <i>below</i> the black line, for the criterion to be fulfilled.
+</p>
+
+<p>
+    Each area has been color coded, so that ghettos have been marked by a <span style="color:red">red</span> color, and non-ghettos have been marked by a <span style="color:rgb(130, 150, 216)">blue</span> color.
+</p>
+
+<p>
+    By mousing over an area, it will show you the name of the area alongside the exact value.
+    By clicking on a line, the area will stay selected until another area is selected, or you click anywhere else on the website.
+</p>
+
+<p>
+    Please note that the x-axis has been scaled differently for each criteria, based on the highest and lowest value in each.
+</p>
+
 <!-- <app-outlier-graph year=2017 threshold=2.7 feature='convicted'></app-outlier-graph> -->
 <app-outlier-graph year=2017 threshold=40 feature='unemployment'></app-outlier-graph>
 <app-outlier-graph year=2017 threshold=50 feature='immigrants'></app-outlier-graph>

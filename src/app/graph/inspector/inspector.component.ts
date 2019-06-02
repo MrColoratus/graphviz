@@ -162,8 +162,8 @@ export class InspectorComponent implements OnInit {
   updateGraph() {
     const _this = this;
 
-    this.target1Text.text(this.target1.name);
-    this.target2Text.text(this.target2.name);
+    this.target1Text.text(this.target1.name + (this.target1.ghetto > 0 ? ' (ghetto)' : ''));
+    this.target2Text.text(this.target2.name + (this.target2.ghetto > 0? ' (ghetto)' : ''));
 
     let targetData = this.convertTargetsToData();
 

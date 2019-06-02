@@ -229,7 +229,7 @@ export class OutlierGraphComponent implements OnInit {
         .attr('style', 'pointer-events: none')
         .attr('opacity', 0)
         .attr('fill', (s) => s.ghetto ? 'darkred' : 'darkgray')
-        .text((s) => s.area + '\t' + s.value + '%');
+        .text((s) => s.area + '\t' + Number(s.value).toFixed(1) + '%');
     }
 
     this.dataService.getData(this, onSuccess);

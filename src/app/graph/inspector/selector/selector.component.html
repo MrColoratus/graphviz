@@ -12,9 +12,9 @@
 <div *ngIf='selectingArea'>
     <p>Select an area</p>
     <div class="dropdown">
-      <button class="dropbtn">{{data[startingArea].area}}</button>
+      <button class="dropbtn">{{currentDropdown}}</button>
       <div class="dropdown-content">
-        <a *ngFor='let area of data' (click)='changeArea(area)'>{{area.area}}</a>
+        <a *ngFor='let area of data' (click)='changeArea(area)'>{{area.area + (area.ghetto ? ' (ghetto)' : '')}}</a>
       </div>
     </div>
   </div>
