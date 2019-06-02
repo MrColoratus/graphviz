@@ -91,9 +91,22 @@ export class InspectorComponent implements OnInit {
       .domain(this.subgroups)
       .padding(0.1);
 
+    let maxVal = this.currentData.reduce((highest: number, data: object) => {
+      this.criterias.forEach(c => {
+        if(data[c.id] > highest) {
+          highest = data[c.id];
+        }
+      });
+
+      return highest;
+    }, 0)
+
+    maxVal = Math.ceil(maxVal + 2);
+    if(maxVal > 100) { maxVal = 100; }
+
     this.yScale = d3.scaleLinear()
       .range([this.HEIGHT, 0])
-      .domain([0, 100]);
+      .domain([0, maxVal]);
 
     // Horizontal Y lines
     const makeYLines = () => d3.axisLeft()

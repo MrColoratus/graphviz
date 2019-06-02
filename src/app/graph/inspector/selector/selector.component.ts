@@ -18,6 +18,13 @@ export class SelectorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // Sort the data alphabetically
+    this.data.sort((a, b) => {
+      if(a.area < b.area) return -1;
+      else if(a.area > b.area) return 1;
+      else return 0;
+    });
+
     this.beginSelectingArea();
   }
 
