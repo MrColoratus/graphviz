@@ -10,26 +10,28 @@
     This is not to skew the image, but rather to make it just a tiny bit easier to compare the bars.
 </p>
 
-<div class="container background">
-  <svg #svg></svg>
-</div>
-
-<div *ngIf='currentData' class='row'>
-
-  <div class='column'>
-    <app-selector 
-      [data]='currentData'
-      [startingArea]=0
-      (targetChange)='target1Change($event)'
-    ></app-selector>
+<div id="outerContainer">
+  <div class="container background">
+    <svg #svg></svg>
   </div>
-
-  <div class='column'>
-    <app-selector 
-      [data]='currentData'
-      [startingArea]=1
-      (targetChange)='target2Change($event)'
-    ></app-selector>
+  
+  <div *ngIf='currentData' class='row'>
+  
+    <div class='column'>
+      <app-selector 
+        [data]='currentData'
+        [startingArea]=0
+        (targetChange)='target1Change($event)'
+      ></app-selector>
+    </div>
+  
+    <div class='column'>
+      <app-selector 
+        [data]='currentData'
+        [startingArea]=1
+        (targetChange)='target2Change($event)'
+      ></app-selector>
+    </div>
+  
   </div>
-
 </div>

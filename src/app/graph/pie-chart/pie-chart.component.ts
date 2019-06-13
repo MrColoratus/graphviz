@@ -9,8 +9,8 @@ import { DataService } from 'src/app/_services/data.service';
 })
 export class PieChartComponent implements OnInit {
 
-  width = 450;
-  height = 450;
+  width = 450/1.5;
+  height = 450/1.5;
   margin = 40;
   radius = Math.min(this.width, this.height) / 2 - this.margin;
 

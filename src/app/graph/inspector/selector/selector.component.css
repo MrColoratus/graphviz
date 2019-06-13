@@ -1,3 +1,7 @@
+#container {
+  float: center;
+}
+
 /* Dropdown Button */
 .dropbtn {
     background-color: rgb(238, 174, 55);

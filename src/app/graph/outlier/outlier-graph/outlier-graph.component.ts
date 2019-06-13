@@ -8,7 +8,6 @@ import { ShareTargetService } from '../share-target.service';
   styleUrls: ['./outlier-graph.component.css'],
   template: 
   `
-  <h2>{{feature | uppercase}}</h2>
   <div id="container" class="container background">
     <svg #svg></svg>
   </div>
@@ -55,10 +54,10 @@ export class OutlierGraphComponent implements OnInit {
         height = 150 - 2 * margin,
         barHeight = 50,
         barWidth = 2,
-        thresholdHeight = 70,
+        thresholdHeight = 90,
         thresholdWidth = 2,
         barSelectScale = 1.5,
-        thresholdSelectScale = 1.3;
+        thresholdSelectScale = 1.1;
 
       let svg = d3.select(this.svgRef.nativeElement);
 
@@ -80,7 +79,7 @@ export class OutlierGraphComponent implements OnInit {
       function markThreshold() {
         chart.selectAll('.thresholdBar')
           .attr('height', thresholdHeight * thresholdSelectScale)
-          .attr('y', height - thresholdHeight * thresholdSelectScale);
+          .attr('y', height - (thresholdHeight/1.1) * thresholdSelectScale);
 
         chart.selectAll('.thresholdText')
           .attr('opacity', 1);
@@ -89,7 +88,7 @@ export class OutlierGraphComponent implements OnInit {
       function clearThreshold() {
         chart.selectAll('.thresholdBar')
           .attr('height', thresholdHeight)
-          .attr('y', height - thresholdHeight);
+          .attr('y', height - thresholdHeight/1.1);
 
         chart.selectAll('.thresholdText')
           .attr('opacity', 0);

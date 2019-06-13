@@ -1,20 +1,22 @@
-<p>Select a comparator</p>
-<div class="dropdown">
-  <button #selector class="dropbtn">{{currentSelector}}</button>
-  <div class="dropdown-content">
-    <a (click)='changeTargetAvg("ghetto")'>Ghetto avg.</a>
-    <a (click)='changeTargetAvg("nonghetto")'>Non-ghetto avg.</a>
-    <a (click)='changeTargetAvg("all")'>All avg.</a>
-    <a (click)='beginSelectingArea()'>Specific area</a>
-  </div>
-</div>
-
-<div *ngIf='selectingArea'>
-    <p>Select an area</p>
-    <div class="dropdown">
-      <button class="dropbtn">{{currentDropdown}}</button>
-      <div class="dropdown-content">
-        <a *ngFor='let area of data' (click)='changeArea(area)'>{{area.area + (area.ghetto ? ' (ghetto)' : '')}}</a>
-      </div>
+<div id="container">
+  <p>Select a comparator</p>
+  <div class="dropdown">
+    <button #selector class="dropbtn">{{currentSelector}}</button>
+    <div class="dropdown-content">
+      <a (click)='changeTargetAvg("ghetto")'>Ghetto avg.</a>
+      <a (click)='changeTargetAvg("nonghetto")'>Non-ghetto avg.</a>
+      <a (click)='changeTargetAvg("all")'>All avg.</a>
+      <a (click)='beginSelectingArea()'>Specific area</a>
     </div>
   </div>
+  
+  <div *ngIf='selectingArea'>
+      <p>Select an area</p>
+      <div class="dropdown">
+        <button class="dropbtn">{{currentDropdown}}</button>
+        <div class="dropdown-content">
+          <a *ngFor='let area of data' (click)='changeArea(area)'>{{area.area + (area.ghetto ? ' (ghetto)' : '')}}</a>
+        </div>
+      </div>
+    </div>
+</div>

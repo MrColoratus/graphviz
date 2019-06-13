@@ -7,7 +7,7 @@
 </p>
 
 <p>
-    Each area has been color coded, so that ghettos have been marked by a <span style="color:red">red</span> color, and non-ghettos have been marked by a <span style="color:rgb(130, 150, 216)">blue</span> color.
+    Each area has been color coded, so that ghettos have been marked by a <span style="color:red">red</span> color, and non-ghettos have been marked by a <span style="color:rgb(130, 150, 216)">blue</span> color. Please note that the ghettos corresponds with the ones defined by the state, and not the ones that fulfill 3 criteria of our data.
 </p>
 
 <p>
@@ -20,8 +20,34 @@
 </p>
 
 <!-- <app-outlier-graph year=2017 threshold=2.7 feature='convicted'></app-outlier-graph> -->
-<app-outlier-graph year=2017 threshold=40 feature='unemployment'></app-outlier-graph>
-<app-outlier-graph year=2017 threshold=50 feature='immigrants'></app-outlier-graph>
+<div style="display: block; float:left;">
+<div>
+    <h2 style="display:inline-block">Unemployment</h2>
+    <p style="display: inline-block;margin-left: 30px;">(Needs to exceed 40%)</p>
+</div>
+<app-outlier-graph style="display: block" year=2017 threshold=40 feature='unemployment'></app-outlier-graph>
+
+<div style="display: block">
+    <h2 style="display: inline-block">Immigrants</h2>
+    <p style="display: inline-block;margin-left: 30px;">(Needs to exceed 50%)</p>
+</div>
+<app-outlier-graph style="display: block" year=2017 threshold=50 feature='immigrants'></app-outlier-graph>
+
+<div>
+    <h2 style="display:inline-block">Convicted</h2>
+    <p style="display: inline-block;margin-left: 30px;">(Needs to exceed 2.7%)</p>
+</div>
 <app-outlier-graph year=2017 threshold=2.7 feature='convicted'></app-outlier-graph>
+
+<div>
+    <h2 style="display:inline-block">Education</h2>
+    <p style="display: inline-block;margin-left: 30px;">(Needs to exceed 50%)</p>
+</div>
 <app-outlier-graph year=2017 threshold=50 feature='education'></app-outlier-graph>
+
+<div>
+    <h2 style="display:inline-block">Income</h2>
+    <p style="display: inline-block;margin-left: 30px;">(Needs to exceed 55%)</p>
+</div>
 <app-outlier-graph year=2017 threshold=55 feature='income'></app-outlier-graph>
+</div>
