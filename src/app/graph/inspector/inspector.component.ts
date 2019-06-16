@@ -108,6 +108,8 @@ export class InspectorComponent implements OnInit {
       .range([this.HEIGHT, 0])
       .domain([0, maxVal]);
 
+    let yAxis = d3.axisLeft(this.yScale).tickFormat(d => d + "%")
+
     // Horizontal Y lines
     const makeYLines = () => d3.axisLeft()
       .scale(this.yScale);
@@ -118,7 +120,7 @@ export class InspectorComponent implements OnInit {
       .call(d3.axisBottom(this.xScale));
 
     chart.append('g')
-      .call(d3.axisLeft(this.yScale));
+      .call(yAxis);
 
     chart.append('g')
       .attr('class', 'grid')

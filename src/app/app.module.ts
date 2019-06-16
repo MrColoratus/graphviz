@@ -9,6 +9,7 @@ import { OutlierGraphComponent } from './graph/outlier/outlier-graph/outlier-gra
 import { InspectorComponent } from './graph/inspector/inspector.component';
 import { PieChartComponent } from './graph/pie-chart/pie-chart.component';
 import { SelectorComponent } from './graph/inspector/selector/selector.component';
+import { PieChartGraphComponent } from './graph/pie-chart/pie-chart-graph/pie-chart-graph.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SelectorComponent } from './graph/inspector/selector/selector.component
     OutlierGraphComponent,
     InspectorComponent,
     PieChartComponent,
-    SelectorComponent
+    SelectorComponent,
+    PieChartGraphComponent
   ],
   imports: [
     BrowserModule,

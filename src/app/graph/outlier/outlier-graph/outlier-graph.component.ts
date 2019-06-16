@@ -71,10 +71,11 @@ export class OutlierGraphComponent implements OnInit {
         .domain([minVal, maxVal])
         .range([0, width]);
 
+      let xAxis = d3.axisBottom(xScale).tickFormat(d => d + "%");
+      
       chart.append('g')
         .attr('transform', `translate(0, ${height})`)
-        .call(d3.axisBottom(xScale));
-
+        .call(xAxis);
 
       function markThreshold() {
         chart.selectAll('.thresholdBar')
@@ -232,32 +233,6 @@ export class OutlierGraphComponent implements OnInit {
     }
 
     this.dataService.getData(this, onSuccess);
-
-
-    return;
-    const div = d3.select("body")
-      .selectAll("p")
-      .data([4, 8, 15, 16, 23, 42])
-      .enter().append("div")
-      .text(d => d);
-
-
-    const matrix = [
-      [11975, 5871, 8916, 2868],
-      [1951, 10048, 2060, 6171],
-      [8010, 16145, 8090, 8045],
-      [1013, 990, 940, 6907]
-    ];
-
-    d3.select("body")
-      .append("table")
-      .selectAll("tr")
-      .data(matrix)
-      .join("tr")
-      .selectAll("td")
-      .data(d => 0)
-      .join("td")
-      .text(d => d);
 
   }
 

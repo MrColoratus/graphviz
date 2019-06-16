@@ -12,9 +12,10 @@
     <b>Please note:</b> The data that we have used for this illustration, is a recreation of the ghettolist, and therefore not 100% accurate. Because of this, the data for 2014 only shows 31 ghettos, while in reality there were 33.
 </p>
 
-<div id="my_dataviz"></div>
 
-<button (click)="update(2014)">2014</button>
-<button (click)="update(2015)">2015</button>
-<button (click)="update(2016)">2016</button>
-<button (click)="update(2017)">2017</button>
+<div>
+    <app-pie-chart-graph style='display:inline-block' [year]=2014></app-pie-chart-graph>
+    <app-pie-chart-graph style='display:inline-block' [year]=2015></app-pie-chart-graph>
+    <app-pie-chart-graph style='display:inline-block' [year]=2016></app-pie-chart-graph>
+    <app-pie-chart-graph style='display:inline-block' [year]=2017></app-pie-chart-graph>
+</div>
