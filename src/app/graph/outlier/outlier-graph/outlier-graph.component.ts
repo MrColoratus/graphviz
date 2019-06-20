@@ -50,7 +50,8 @@ export class OutlierGraphComponent implements OnInit {
       let currentData = dataByYear[compRef.year - 2014].value;
 
       let margin = 50,
-        width = 1000 - 2 * margin,
+        marginX = 30,
+        width = 1000 - 2 * marginX - 40,
         height = 150 - 2 * margin,
         barHeight = 50,
         barWidth = 2,
@@ -62,7 +63,7 @@ export class OutlierGraphComponent implements OnInit {
       let svg = d3.select(this.svgRef.nativeElement);
 
       let chart = svg.append('g')
-        .attr("transform", `translate(${margin}, ${margin})`);
+        .attr("transform", `translate(${marginX}, ${margin})`);
 
       let minVal = Math.floor(d3.min(currentData, (d) => { return d.value; }) - 0.000001);
       let maxVal = Math.ceil(d3.max(currentData, (d) => { return d.value; }) - 0.000001);
